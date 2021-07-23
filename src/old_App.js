@@ -1,14 +1,10 @@
 import React,{useEffect,useState} from "react";
-import { MDBDataTableV5 } from 'mdbreact';
-
 //import api from "./services/api";
 
 function App() {
   const [obj, setObj] = useState([])
   useEffect(async () => {
-
     await fetch("http://localhost:8081/api-relatorio")
-    //await fetch("http://10.1.5.85:8081/api/relatorio")
       .then(response => {
         return response.json()
       })
@@ -17,12 +13,10 @@ function App() {
           )
       })
   })
-  return <MDBDataTableV5 hover entriesOptions={[5, 20, 25]} entries={5} pagesAmount={4} data={obj} />
-
-
-    /*<center>
+  return (
+    <center>
       <div className="main">
-      <table id="example" class="display">
+          <table>
             <tr>
               <th>Codigo</th>
               <th>Produto</th>
@@ -81,8 +75,8 @@ function App() {
             })} 
         </table>
       </div>
-    </center>*/
-  
+    </center>
+  );
 }
 
 export default App;
